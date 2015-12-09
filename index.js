@@ -9,3 +9,10 @@ app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname + '/public'))); 
 
 urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+
+
+
+
+
+
