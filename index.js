@@ -13,8 +13,8 @@ app.use(express.static(path.join(__dirname + '/public')));
 urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
+app.get("/", route.index);
 
 
 
-
-
+app.listen(3000);
