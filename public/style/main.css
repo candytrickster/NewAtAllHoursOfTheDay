@@ -1,0 +1,21 @@
+#menu-bar {
+    font-family: Ostrich;
+    font-size: 20px;
+    background-color: #2B2019;
+    margin-left: -8px;
+    margin-top: -8px;
+    min-width: 100%;
+    color: #31B0B0;
+}
+
+#menu-bar a, p {
+    margin-right: 50px;
+    text-decoration: none;
+    color: #31B0B0;
+    margin-left: 50px;
+}
+
+#menu-bar a:hover {
+    text-decoration: none;
+    color: #DCFCFC;
+}
