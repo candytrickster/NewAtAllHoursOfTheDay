@@ -4,6 +4,8 @@ function setup()
     setDate();
 }
 
+timeInterval = setInterval(setup, 1000);
+
 function setTime() 
 {
     var time = 0;
