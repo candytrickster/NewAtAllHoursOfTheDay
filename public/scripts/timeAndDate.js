@@ -29,7 +29,7 @@ function getTime(t)
     var time = document.getElementById("time");
     time.innerHTML =hour + " : " + minute + " : " + second; 
     var hourAndMin = hour+":"+minute;
-    if(hour >= "5" && hour <= "16")
+    if(hour >= "05" && hour <= "16")
     {
         var image = document.getElementById('logo');
         logo.setAttribute("src", "/images/weatherlogo.png");

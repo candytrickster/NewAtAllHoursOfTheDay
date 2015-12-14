@@ -21,8 +21,8 @@ function write(json_obj)
     var temp = document.getElementById("temperature");
     var image = document.getElementById("weatherpic");
     image.setAttribute('src', "http://openweathermap.org/img/w/"+json_obj.weather[0].icon+".png");
-    w.innerHTML = json_obj.weather[0].description;
-    temp.innerHTML = json_obj.main.temp;
+    w.innerHTML = json_obj.weather[0].description.toUpperCase();
+    temp.innerHTML = json_obj.main.temp+"&#176 F";
 }
 
 function getWeatherObject()
