@@ -3,6 +3,7 @@ html
     head
         title News At All Hours Of The Day
         link(href='/style/main.css', rel='stylesheet')
+        script(src='/scripts/jquery-2.1.4.min.js')
         script(src='/scripts/weather.js')
         script(src='/scripts/timeAndDate.js')
         script(src='/scripts/stock.js')
@@ -20,6 +21,8 @@ html
     section#today
         section#rssFeed
     section#fiveDay
+        h1 5-Day Forecast Weather
+        span(id="Weather-Insert")
     section#stockTicker
     section#radio
     section#liveNews

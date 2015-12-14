@@ -5,15 +5,14 @@ var express = require('express'),
     route = require('./routes/routes.js');
 
 var app = express();
+var weather = require('./weather.js');
 
 app.set('view engine', 'jade'); 
 app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname + '/public'))); 
 
-urlencodedParser = bodyParser.urlencoded({ extended: false })
+urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.get("/", route.index);
-
-
 
 app.listen(3000);

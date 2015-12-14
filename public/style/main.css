@@ -19,3 +19,21 @@
     text-decoration: none;
     color: #DCFCFC;
 }
+
+.weatherPanel {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    display: inline-block;
+    background-color: #888888;
+}
+
+.weatherPanelDate {
+    text-align: center;
+    font-weight: bold;
+}
+
+.weatherPanelTemperature {
+    text-align: center;
+    font-weight: bold;
+}
