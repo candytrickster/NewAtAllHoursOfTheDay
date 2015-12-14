@@ -124,6 +124,7 @@ function search()
     searchForCity(submitValue.value);
     var json_obj = JSON.parse(getWeatherObject());
     write(json_obj);
+    weather.get5DayWeather(submitValue.value);
 }
 
 
