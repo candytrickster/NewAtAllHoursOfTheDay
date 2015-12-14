@@ -28,6 +28,14 @@ function getTime(t)
     hour = (hour < 10) ? '0'+hour : hour;
     var time = document.getElementById("time");
     time.innerHTML =hour + " : " + minute + " : " + second; 
+    var hourAndMin = hour+":"+minute;
+    if(hour >= "5" && hour <= "16")
+    {
+        var image = document.getElementById('logo');
+        logo.setAttribute("src", "/images/weatherlogo.png");
+        var nav = document.getElementById("menu-bar");
+        nav.style.backgroundColor = "#ffffcc";
+    }
 }
 
 function setDate()

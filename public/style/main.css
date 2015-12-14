@@ -6,16 +6,35 @@
     margin-top: -8px;
     min-width: 100%;
     color: #31B0B0;
+    height: 135px;
 }
 
 #menu-bar a, p {
     margin-right: 50px;
     text-decoration: none;
-    color: #31B0B0;
+    color: #cc6600;
+/*    color: #31B0B0;*/
     margin-left: 50px;
 }
 
 #menu-bar a:hover {
     text-decoration: none;
-    color: #DCFCFC;
+    color: #ff9966;
+/*    color: #DCFCFC;*/
+}
+
+#menu-bar p {
+    float: right;
+}
+
+#logo
+{
+    width: 100px;
+    height: 100px;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+#today {
+    
 }
