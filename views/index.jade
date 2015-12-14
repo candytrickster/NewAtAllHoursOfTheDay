@@ -9,6 +9,7 @@ html
         script(src='/scripts/stock.js')
     body(onload='setup()')
         div#menu-bar
+            img(id='logo', src='/images/weatherlogoNight.png')
             a(href='/') Home
             a(href='/') Today's Forecast
             a(href='/') 5 Day Forecast
@@ -19,6 +20,14 @@ html
             p#date 0/0/0
 
     section#today
+        h1#location
+        p#temperature
+        img(id='weatherpic', src='')
+        p#weather
+        div#search
+            label(for="searchString") Search City:
+            input(id="searchCity",name="searchCity",type="text",value="Salt Lake City, UT")
+            input(id="submit", name="submit", type="Submit", onclick="search()")
         section#rssFeed
     section#fiveDay
         h1 5-Day Forecast Weather
@@ -26,4 +35,7 @@ html
     section#stockTicker
     section#radio
     section#liveNews
-        
+        video
+            source(src='https://www.youtube.com/watch?v=y60wDzZt8yg', type='video/mp4', codecs="avc1.42E01E, mp4a.40.2", autoplay="autoplay")
+    
+    

@@ -18,7 +18,7 @@ function Weather() {
         }
         var forecastObject = document.getElementById('forecastObject');
         for (var i = 0; i < that.sortedWeatherObjects.length; i++) {
-            forecastObject.innerHTML += "<div class=\'weatherPanel\'>\n    <span class=\"weatherPanelDate\">\n        <p>" + that.sortedWeatherObjects[i].numericalDate + "</p>\n    </span>\n    <br>\n    <span class=\"weatherPanelTime\">\n        <p>Time: " + that.sortedWeatherObjects[i].numericalTime + "</p>\n    </span>\n    <br>\n    <span class=\"weatherPanelTemperature\">\n        <p>" + that.sortedWeatherObjects[i].fahrenheit + "°F " + that.sortedWeatherObjects[i].celsius + "°C</p>\n    </span>\n    <br>\n    <span class=\"weatherPanelDescription\">\n        <p>" + that.sortedWeatherObjects[i].description + "</p>\n    </span>\n    <br>\n</div>";
+            forecastObject.innerHTML += "<div class=\'weatherPanel\'>\n    <span class=\"weatherPanelDate\">\n        <p>" + that.sortedWeatherObjects[i].numericalDate + "</p>\n    </span>\n    <br>\n    <span class=\"weatherPanelTime\">\n        <p>Time: " + that.sortedWeatherObjects[i].numericalTime + "</p>\n    </span>\n    <br>\n    <span class=\"weatherPanelTemperature\">\n        <p>" + that.sortedWeatherObjects[i].fahrenheit + "�F " + that.sortedWeatherObjects[i].celsius + "�C</p>\n    </span>\n    <br>\n    <span class=\"weatherPanelDescription\">\n        <p>" + that.sortedWeatherObjects[i].description + "</p>\n    </span>\n    <br>\n</div>";
         }
         forecastObject.id = '';
     };
@@ -58,6 +58,7 @@ function Weather() {
         });
     };
     this.sortWeatherObjects = function() {
+        that.sortedWeatherObjects = [];
         for (var i = 0; i < that.weatherObjects.length; i++) {
             var obj = new that.sortedWeather();
             var s = that.weatherObjects[i].dt_txt.split(' ');
@@ -75,10 +76,57 @@ function Weather() {
     };
 }
 
+var weather = {};
 var weatherCheckInterval = setInterval(function(){
     if (document.readyState == 'complete') {
-        var weather = new Weather();
-        weather.get5DayWeather('Salt Lake City');
+        weather = new Weather();
+        weather.get5DayWeather('Salt Lake City, UT');
         clearInterval(weatherCheckInterval);
     }
 }, 10);
+
+window.onload = function()
+{
+    searchForCity("Salt Lake City, UT");
+    weather.get5DayWeather('Salt Lake City, UT');
+    var json_obj = JSON.parse(getWeatherObject());
+    write(json_obj);
+}
+
+function searchForCity(city)
+{
+    var location = document.getElementById('location');
+    location.innerHTML = city;
+}
+
+function write(json_obj)
+{
+    var w = document.getElementById("weather");
+    var temp = document.getElementById("temperature");
+    var image = document.getElementById("weatherpic");
+    image.setAttribute('src', "http://openweathermap.org/img/w/"+json_obj.weather[0].icon+".png");
+    w.innerHTML = json_obj.weather[0].description.toUpperCase();
+    temp.innerHTML = json_obj.main.temp+"&#176 F";
+}
+
+function getWeatherObject()
+{
+    var location = document.getElementById('location').innerHTML;
+    var h = new XMLHttpRequest();
+    h.open("GET", "http://api.openweathermap.org/data/2.5/weather?q="+location+"&appid=2de143494c0b295cca9337e1e96b00e0&units=imperial",false);
+    h.send(null);
+    return h.responseText;
+}
+
+function search()
+{
+    var submitValue = document.getElementById("searchCity");
+    searchForCity(submitValue.value);
+    var json_obj = JSON.parse(getWeatherObject());
+    write(json_obj);
+}
+
+
+
+
+
