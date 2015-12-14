@@ -18,7 +18,7 @@ function Weather() {
         }
         var forecastObject = document.getElementById('forecastObject');
         for (var i = 0; i < that.sortedWeatherObjects.length; i++) {
-            forecastObject.innerHTML += "<div class=\'weatherPanel\'>\n    <span class=\"weatherPanelDate\">\n        <p>" + that.sortedWeatherObjects[i].numericalDate + "</p>\n    </span>\n    <br>\n    <span class=\"weatherPanelTime\">\n        <p>Time: " + that.sortedWeatherObjects[i].numericalTime + "</p>\n    </span>\n    <br>\n    <span class=\"weatherPanelTemperature\">\n        <p>" + that.sortedWeatherObjects[i].fahrenheit + "�F " + that.sortedWeatherObjects[i].celsius + "�C</p>\n    </span>\n    <br>\n    <span class=\"weatherPanelDescription\">\n        <p>" + that.sortedWeatherObjects[i].description + "</p>\n    </span>\n    <br>\n</div>";
+            forecastObject.innerHTML += "<div class=\'weatherPanel\'>\n    <span class=\"weatherPanelDate\">\n        <p>" + that.sortedWeatherObjects[i].numericalDate + "</p>\n    </span>\n    <br>\n    <span class=\"weatherPanelTime\">\n        <p>Time: " + that.sortedWeatherObjects[i].numericalTime + "</p>\n    </span>\n    <br>\n    <span class=\"weatherPanelIcon\">\n        <img src=\"http://openweathermap.org/img/w/" + that.sortedWeatherObjects[i].icon + ".png\"\">\n    </span>\n    <span class=\"weatherPanelTemperature\">\n        <p>" + that.sortedWeatherObjects[i].fahrenheit + "�F " + that.sortedWeatherObjects[i].celsius + "�C</p>\n    </span>\n    <br>\n    <span class=\"weatherPanelDescription\">\n        <p>" + that.sortedWeatherObjects[i].description.toUpperCase() + "</p>\n    </span>\n    <br>\n</div>";
         }
         forecastObject.id = '';
     };
